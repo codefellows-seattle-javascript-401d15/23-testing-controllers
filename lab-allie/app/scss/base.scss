@@ -1,0 +1,65 @@
+// ** VARS ** //
+$brand-primary: #F9CDAD;
+$brand-links: #FE4365;
+$brand-links-hover: #FC9D9A;
+$heading-color: #83AF90;
+$brand-main-font: Helvetica;
+$brand-secondary-font: "Copperplate";
+$padding: 3%;
+$margin-left: 35%;
+
+// ** MIXINS ** //
+@mixin button {
+  border-radius: .3em;
+  background-color: $brand-links-hover;
+  padding: 1.5%;
+  &:hover {
+    background-color: $brand-links;
+    color: white;
+  }
+}
+
+@mixin field {
+  border-radius: .7em;
+  border-color: $brand-links-hover;
+}
+
+// ** BASE STYLES ** //
+body {
+  background-color: $brand-primary;
+}
+
+a {
+  color: $brand-links;
+  &:hover {
+    color: $brand-links-hover;
+  }
+}
+
+button {
+  @include button;
+}
+
+input {
+  @include field;
+}
+
+h2 {
+  font-size: 3vw;
+  color: $heading-color;
+}
+
+.container {
+  margin-top: 5%;
+  font-size: 3vw;
+  margin-left: $margin-left;
+  font-family: $brand-main-font;
+}
+
+.links {
+  padding: $padding;
+  text-align: center;
+  font-family: $brand-secondary-font;
+  display: inline;
+  font-size: 1.3em;
+}
