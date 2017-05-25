@@ -11,7 +11,13 @@ In terminal tab, enter:
 2. `npm run watch` to run webpack server
 3. Open on `http://localhost:8080/`
 
-## Resources
+## Run Test
+In terminal tab, enter:
+1. `npm install` to install application resources.
+2. `npm run test` to run tests using jasmine.
+
+
+## Application Resources
 * "angular"
 * "babel-core"
 * babel-loader"
@@ -24,3 +30,13 @@ In terminal tab, enter:
 * "sass-loader"
 * "style-loader"
 * "webpack"
+
+## Testing Resources
+* "angular-mocks"
+* "jasmine"
+* "jasmine-core"
+* "karma"
+* "karma-chrome-launcher"
+* "karma-jasmine"
+* "karma-webpack"
+* "webpack-dev-server"
