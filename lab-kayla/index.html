@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="cowsayApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Happy Cow</title>
+    <link href="https://fonts.googleapis.com/css?family=Bitter:400i|Merriweather" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav ng-controller="NavigationController as navCtrl">
+      <ul>
+        <li ng-repeat="route in navCtrl.routes">
+           <a href="{{ route.url }}">{{ route.name }}</a>
+        </li>
+      </ul>
+    </nav>
+    </header>
+    <main>
+      <section
+        ng-controller="CowsayController as cowsayCtrl"
+        ng-init="cowsayCtrl.current = 'elephant'">
+        <h1>{{ cowsayCtrl.title }}</h1>
+        <pre>
+          {{ cowsayCtrl.update(cowsayCtrl.text) }}
+        </pre>
+
+        <form
+          ng-submit="cowsayCtrl.speak(cowsayCtrl.text)"
+          name="cowsayForm"
+          novalidate="true">
+          <select name="cowOptions" ng-model="cowsayCtrl.current">
+            <option ng-repeat="cow in cowsayCtrl.cowfiles" value="{{ cow }}">{{ cow }}</option>
+          </select>
+
+          <input type="text" ng-model="cowsayCtrl.text" required>
+          <button type="submit" name="speak">SPEAK!</button>
+
+        </form>
+
+        <div ng-show="cowsayCtrl.history.length">
+          <pre>
+            {{ cowsayCtrl.currentCow }}
+          </pre>
+          <button type="submit" name="undo" ng-click="cowsayCtrl.undo()">UNDO</button>
+        </div>
+
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

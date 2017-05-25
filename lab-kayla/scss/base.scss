@@ -1,0 +1,73 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bitter:400i|Merriweather');
+
+$brand-primary: #85B79D;
+$btn-hover: #424B54;
+$black: #000;
+$white: #fff;
+$box-std: 20%;
+$gutter-std: 5%;
+
+
+body {
+  font-family: helvetica;
+  font-size: 1em;
+  background: #56CBF9;
+}
+
+nav {
+  background-color: #FFFF00;
+  padding-left: 65em;
+  padding-top: 2em;
+}
+
+li {
+  display: inline;
+  font-family: 'Merriweather', serif;
+  font-size: .75em;
+}
+
+h1 {
+  color: #694873;
+  background-color: #FFFF00;
+  font-family: 'Bitter';
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+button {
+  width: $box-std;
+  padding: 2% 0;
+  background: #0C1E32;
+  color: $white;
+  border: none;
+  cursor: pointer;
+  transition: 350ms all;
+
+  &:hover {
+    background: $btn-hover;
+  }
+}
+
+section {
+  text-align: center;
+}
+
+select {
+  margin-left: 50px;
+}
+
+input[type="text"] {
+  width: $box-std;
+  height: $box-std / 2;
+  margin-right: $gutter-std / 2;
+  padding: 2%;
+  border: none;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: monospace;
+  margin: $gutter-std;
+}
