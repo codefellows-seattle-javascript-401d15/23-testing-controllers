@@ -1,0 +1,40 @@
+$font-stack: Frutiger, 'Frutiger Linotype', Univers, Calibri, 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$primary-color: #0D254C;
+$font-color: #C80815;
+
+@mixin navigation-list {
+  list-style-type:none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  > li{
+    display: block;
+    float: left;
+  }
+}
+
+body {
+  font: 100% $font-stack;
+  font-size: 1.5em;
+  color: $font-color;
+  background-color: $primary-color;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2.3em;
+  color: white;
+  margin: 0 auto;
+}
+
+.main-nav {
+  @include navigation-list;
+}
+
+button {
+  font-size: 1em;
+}
+
+input {
+  font-style: 1em;
+}
