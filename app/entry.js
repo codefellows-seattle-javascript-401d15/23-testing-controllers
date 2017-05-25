@@ -9,42 +9,42 @@ const cowsayApp = angular.module('cowsayApp', [])
 
 cowsayApp.controller('CowsayController', ['$log', CowsayController])
 
-function CowsayController($log){
+function CowsayController($log) {
   $log.debug('#CowsayController')
+  this.$onInit = () => {
 
-  $log.log('check this out', this)
+    $log.log('check this out', this)
 
-  this.title = '...tis a silly place'
-  this.hist = []
+    this.title = '...tis a silly place'
+    this.history = []
 
-  cowsay.list((err, cows) => {
-    this.cowfiles = cows
-    this.current = this.cowfiles[0]
-  })
+    cowsay.list((err, cows) => {
+      this.cowfiles = cows
+      this.current = this.cowfiles[12]
+    })
 
-  this.update = function(input) {
-    $log.debug('#update')
-    return cowsay.say({text: input || 'rawr', f: this.current})
-  }
+    this.update = function(input) {
+      $log.debug('#update')
+      return cowsay.say({text: input || 'rawr', f: this.current})
+    }
 
-  this.speak = function(input) {
-    $log.debug('#speak')
+    this.speak = function(input) {
+      $log.debug('#speak')
+      this.spoken = this.update(input)
+      this.history.push(this.spoken)
+    }
 
-    this.spoken = this.update(input)
-    this.hist.push(this.spoken)
-  }
-
-  this.undo = function() {
-    $log.debug('#undo')
-
-    this.hist.pop()
-    this.spoken = this.hist[this.hist.length - 1] || ''
+    this.undo = function() {
+      $log.debug('#undo')
+      this.history.pop()
+      this.spoken = this.history[this.history.length -1]|| ''
+    }
   }
 }
 
 cowsayApp.controller('NavigationController', ['$log', NavigationController])
 
-function NavigationController($log){
+function NavigationController($log) {
   $log.debug('#NavigationController')
 
   this.routes = [
