@@ -12,31 +12,32 @@ cowsayApp.controller('CowsayController', ['$log', CowsayController]);
 function CowsayController($log) {
   $log.debug('#CowsayController');
 
-  $log.log('check this out', this);
+  this.$onInit = () => {
 
-  this.title = 'Make things say stuff';
-  this.history = [];
+    this.title = 'Make things say stuff';
+    this.history = [];
 
-  cowsay.list((err, cows) => {
-    this.cowfiles = cows;
-    this.current = this.cowfiles[0];
-  }),
+    cowsay.list((err, cows) => {
+      this.cowfiles = cows;
+      this.current = this.cowfiles[0];
+    }),
 
-  this.update = function(input) {
-    $log.debug('#update');
-    return cowsay.say({text: input || 'Wubalubadubdub!', f: this.current});
-  },
+    this.update = function(input) {
+      $log.debug('#update');
+      return cowsay.say({text: input || 'Wubalubadubdub!', f: this.current});
+    },
 
-  this.speak = function(input) {
-    $log.debug('#speak');
-    this.spoken = this.update(input);
-    this.history.push(this.spoken);
-  },
+    this.speak = function(input) {
+      $log.debug('#speak');
+      this.spoken = this.update(input);
+      this.history.push(this.spoken);
+    },
 
-  this.undo = function() {
-    $log.debug('#undo');
-    let temp = this.history.pop();
-    this.spoken = temp || '';
+    this.undo = function() {
+      $log.debug('#undo');
+      let temp = this.history.pop();
+      this.spoken = temp || '';
+    };
   };
 }
 
