@@ -10,8 +10,10 @@ module.exports = {
     path: `${__dirname}/app/index.js`,
   },
   plugins: [
-    new HTMLPlugin({template: `{__dirname}/app/index.html`}),
-    new ExtractPlugin('bundle.css'),
+    new HTMLPlugin({
+      template: `{__dirname}/app/index.html`,
+    }),
+    new ExtractPlugin('bundle-[hash].css'),
   ],
   module: {
     loaders: [
@@ -20,7 +22,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.js#/,
+        test: /\.js$/,
         exclude: /node-modules/,
         loader: ['babel-loader'],
       },
