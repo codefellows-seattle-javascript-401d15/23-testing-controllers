@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test watch": "karma start --auto-watch --no-single-run",
-    "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
+    "test-watch": "karma start --auto-watch --no-single-run",
     "test": "karma start",
+    "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "build": "webpack"
 
   },
