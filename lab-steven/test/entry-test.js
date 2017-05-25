@@ -29,7 +29,7 @@ describe('testing CowsayController', function(){
     expect(this.cowsayCtrl.spoken).toContain('test speak text');
     expect(this.cowsayCtrl.history[0]).toContain('test speak text');
   });
-  it('undo', () => {
+  it('has undo method that works properly', () => {
     this.cowsayCtrl.speak('undo test1');
     this.cowsayCtrl.speak('undo test2');
     expect(this.cowsayCtrl.history.length).toEqual(2);
