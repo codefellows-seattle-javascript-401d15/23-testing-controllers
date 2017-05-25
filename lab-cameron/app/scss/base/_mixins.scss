@@ -5,3 +5,14 @@
     clear: both;
   }
 }
+
+@mixin bubble {
+  padding: 2%;
+  border-radius: .25em;
+  font-family: sans-serif;
+}
+
+@mixin drop {
+  @include bubble;
+  font-size: $font-size-primary;
+}

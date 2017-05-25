@@ -1,0 +1,28 @@
+.main-nav {
+  background: darken($color-primary, 20%);
+  ul {
+    width: 100%;
+    @include clearFix;
+  }
+  li {
+    float: left;
+    width: 30%;
+  }
+  a {
+    color: green;
+    text-decoration: none;
+    font-size: 2em;
+    padding: $padding * 1.5;
+    display: block;
+    text-align: center;
+    &:hover {
+      background: lighten($color-primary, 10%);
+    }
+  }
+}
+
+.main-heading {
+  font-size: 3.5rem;
+  text-align: center;
+  color: #FFF;
+}

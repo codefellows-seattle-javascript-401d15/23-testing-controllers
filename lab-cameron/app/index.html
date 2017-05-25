@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ipsumApp">
   <head>
     <meta charset="utf-8">
-    <title> angular controller testing </title>
+    <title> Cowsay Ipsum </title>
   </head>
   <body>
-    <div class="wrapper" ng-app="ipsumApp">
-      <header class="main-header">
-        <nav
-          class="main-nav"
-          ng-controller="NavigationController as navCtrl">
+    <header class="main-header">
+      <nav class="main-nav"
+        ng-controller="NavigationController as navCtrl">
         <ul>
           <li
             ng-repeat="route in navCtrl.routes">
@@ -17,45 +15,44 @@
           </li>
         </ul>
       </nav>
-        <h1 class="main-heading"> Cowsay Ipsum App </h1>
-      </header>
-      <main>
-        <section
-          class="cowsay-content"
-          ng-controller="CowsayController as cowsayCtrl"
-          ng-init="cowsayCtrl.current = 'tux'">
-          <pre class="cow">
-            {{ cowsayCtrl.update(cowsayCtrl.text) }}
+      <h1 class="main-heading"> Cowsay Ipsum App </h1>
+    </header>
+    <main>
+      <section
+        class="cowsay-content"
+        ng-controller="CowsayController as cowsayCtrl"
+        ng-init="cowsayCtrl.current = 'tux'">
+        <pre class="cow">
+          {{ cowsayCtrl.update(cowsayCtrl.text) }}
+        </pre>
+        <form
+          ng-submit="cowsayCtrl.speak(cowsayCtrl.text)"
+          name="cowsayForm"
+          novalidate>
+          <select name="cowOptions" ng-model="cowsayCtrl.current">
+            <option ng-repeat="cow in cowsayCtrl.cowfiles" value="{{ cow }}">{{ cow }}</option>
+          </select>
+          <input type="text" ng-model="cowsayCtrl.text" required>
+          <button type="submit" name="speak">Speak!</button>
+        </form>
+        <form ng-submit="cowsayCtrl.handleSubmit()">
+          <select ng-model="cowsayCtrl.selected">
+            <option
+              ng-repeat="item in cowsayCtrl.choices track by $index"
+              value="{{ item }}">
+              {{ item }}
+          </option>
+          </select>
+          <button type="submit"> Generate {{ cowsayCtrl.selected }} ipsum </button>
+        </form>
+        <div ng-show="cowsayCtrl.spoken">
+          <pre>
+            {{ cowsayCtrl.spoken }}
           </pre>
-          <form
-            ng-submit="cowsayCtrl.speak(cowsayCtrl.text)"
-            name="cowsayForm"
-            novalidate>
-            <select name="cowOptions" ng-model="cowsayCtrl.current">
-              <option ng-repeat="cow in cowsayCtrl.cowfiles" value="{{ cow }}">{{ cow }}</option>
-            </select>
-            <input type="text" ng-model="cowsayCtrl.text" required>
-            <button type="submit" name="speak">Speak!</button>
-          </form>
-          <form ng-submit="cowsayCtrl.handleSubmit()">
-            <select ng-model="cowsayCtrl.selected">
-              <option
-                ng-repeat="item in cowsayCtrl.choices track by $index"
-                value="{{ item }}">
-                {{ item }}
-            </option>
-            </select>
-            <button type="submit"> Generate {{ cowsayCtrl.selected }} ipsum </button>
-          </form>
-          <div ng-show="cowsayCtrl.spoken">
-            <pre>
-              {{ cowsayCtrl.spoken }}
-            </pre>
-            <button type="button" name="undo" ng-click="cowsayCtrl.undo()">Undo!</button>
-          </div>
-        </section>
-      </main>
-      <footer></footer>
-    </div>
+          <button type="button" name="undo" ng-click="cowsayCtrl.undo()">Undo!</button>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
   </body>
 </html>
