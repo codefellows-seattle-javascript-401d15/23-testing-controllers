@@ -1,0 +1,51 @@
+// :::: Vars ::::
+
+$brand-primary: #444;
+$btn-primary: $brand-primary / 2;
+$black: #000;
+$white: #fff;
+
+// :::::: Mixins ::::::: ///
+
+@mixin board{
+  border: 2px dashed white;
+  font-size: .68em;
+}
+
+@mixin fonter{
+    font-family: serif;
+
+}
+
+// :::: base styles ::::
+
+body {
+  font-family: helvetica;
+  font-size: 2vw;
+  background: #F0D817;
+}
+
+h2{
+  @include fonter;
+  font-size: 2em;
+}
+
+section{
+  width: 50%
+}
+
+pre{
+  @include board;
+  height: 20em;
+  width: 25em;
+  margin: 1em;
+  padding: 1em;
+
+}
+
+
+#nav-bar{
+  @include fonter;
+  margin: .2em;
+  display: inline-block;
+}
