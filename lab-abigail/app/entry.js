@@ -1,7 +1,7 @@
 'use strict';
-// 
-// require('../scss/reset.scss');
-// require('../scss/main.scss');
+
+// require('./scss/reset.scss');
+// require('./scss/main.scss');
 
 const angular = require('angular');
 const cowsay = require('cowsay-browser');
@@ -10,32 +10,34 @@ const cowsayApp = angular.module('cowsayApp', []);
 cowsayApp.controller('CowsayController', ['$log', CowsayController]);
 
 function CowsayController($log) {
-  $log.debug('#CowsayController');
+  this.$onInit = () => {
+    $log.debug('#CowsayController');
 
-  this.title = 'HAPPY COWDAY';
-  this.history = [];
+    this.title = 'HAPPY COWDAY';
+    this.history = [];
 
-  cowsay.list((err, cows) => {
-    this.cowfiles = cows;
-    this.current = this.cowfiles[0];
-  });
+    cowsay.list((err, cows) => {
+      this.cowfiles = cows;
+      this.current = this.cowfiles[0];
+    });
 
-  this.update = function(input) {
-    $log.debug('#update');
-    return cowsay.say({text: input || 'bahhh', f: this.current});
-  };
+    this.update = function(input) {
+      $log.debug('#update');
+      return cowsay.say({text: input || 'bahhh', f: this.current});
+    };
 
-  this.speak = function(input) {
-    $log.debug('#speak');
-    this.spoken = this.update(input);
-    this.history.push(this.spoken);
-  };
+    this.speak = function(input) {
+      $log.debug('#speak');
+      this.spoken = this.update(input);
+      this.history.push(this.spoken);
+    };
 
-  this.undo = function() {
-    $log.debug('#undo');
-    this.history.pop();
-    this.spoken = this.history[this.history.length-1] || '';
-  };
+    this.undo = function() {
+      $log.debug('#undo');
+      this.history.pop();
+      this.spoken = this.history[this.history.length-1] || '';
+    };
+  }
 }
 
 cowsayApp.controller('NavigationController', ['$log', NavigationController]);
