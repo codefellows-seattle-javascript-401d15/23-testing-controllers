@@ -7,6 +7,13 @@ delete webpack.entry;
 module.exports = function(config) {
   config.set({
     webpack,
+    client: {
+      captureConsole: true,
+    },
+    browserConsoleLogOptions: {
+      level: 'log',
+    },
+    
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
@@ -32,7 +39,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/entry.js': ['webpack'],
+      'app/index.js': ['webpack'],
       'test/**/*-test.js': ['webpack'],
     },
 
@@ -67,7 +74,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
+    singleRun: false,
 
     // Concurrency level
     // how many browser should be started simultaneous
