@@ -1,0 +1,72 @@
+// **** VARS **** //
+$brand-primary: #BADDAD;
+$brand-secondary: #232232;
+
+$padding: 0.5em;
+$font-size-primary: 1.025em;
+
+// **** MIXINS **** //
+@mixin bubble{
+  border-radius: 0.25em;
+  font-family: sans-serif;
+}
+@mixin drop{
+  @include bubble;
+  font-size: $font-size-primary;
+}
+
+// **** BASE STYLES **** //
+html, body{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $brand-primary;
+}
+
+input{
+  @include bubble;
+  width: 50%;
+  background-color: rgba(300, 300, 300, 0.65);
+  padding: $padding;
+  &:focus{
+    background-color: $brand-secondary;
+    color: $brand-primary;
+  }
+}
+
+nav ul, nav a{
+  display: inline;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+list{
+  @include bubble;
+  background-color: $brand-primary;
+  color: brand-secondary;
+  &:focus{
+    background-color: $brand-secondary;
+    color: $brand-primary;
+  }
+}
+
+button{
+  @include bubble;
+  background-color: rgba(300, 300, 300, 0.65);
+  &:hover{
+    background-color: rgba(022, 022, 022, 0.75);
+    color: $brand-primary;
+  }
+}
+
+main{
+  background-color: $brand-primary;
+}
+
+@for $i from 6 through 1{
+  h#{$i}{
+    color: $brand-secondary;
+    margin-bottom: $i/10 * 1.0em;
+    font-size: 9/($i + 2) * 1.0em; //fontsize divided by ( h1-6 tag +2) multiplied by the size in ems
+  }
+}
