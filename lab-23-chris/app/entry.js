@@ -2,6 +2,8 @@
 
 require('./scss/reset.scss');
 require('./scss/main.scss');
+require('./scss/base.scss');
+require('./scss/layout.scss');
 
 const angular = require('angular');
 const cowsay = require('cowsay-browser');
