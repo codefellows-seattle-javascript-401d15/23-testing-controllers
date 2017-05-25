@@ -27,7 +27,6 @@ function CowsayController($log){
     return cowsay.say({text: input || 'text here', f: this.current});
   };
 
-
   this.speak = function(input){
     $log.debug('#speak');
     this.spoken = this.update(input);
@@ -60,9 +59,5 @@ function NavigationController($log){
       name: 'contact',
       url: '/contact',
     },
-    // {
-    //   name: 'home';
-    //   url: '/home';
-    // },
   ];
 }

@@ -4,6 +4,7 @@ const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  devtool: 'source-map',
   entry: `${__dirname}/app/entry.js`,
   output: {
     filename: 'bundle.js',
@@ -27,7 +28,7 @@ module.exports = {
       {
         test: /\/.(eot|woff|ttf|svg).*/,
         loader: 'url?limit=10000&name=fonts/[hash].[ext]',
-      }
+      },
     ],
-  }
-}
+  },
+};
