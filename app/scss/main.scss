@@ -1,0 +1,89 @@
+//::::VARS:::://
+
+$brand-font:'Poiret One', cursive;
+$brand-primary: #341;
+$btn-primary: $brand-primary / 3;
+$btn-hover: #bb7;
+$maring-std: 5%;
+$btn-pad: 5%;
+$corners: .5em;
+
+//::::MIXINS:::://
+
+@mixin bubble{
+  padding: 1% $btn-pad;
+  border: none;
+  border-radius: $corners;
+}
+
+@mixin txtPrime{
+  font-family: $brand-font;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #fff;
+}
+
+//::::STYLES:::://
+
+html {
+    height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: $brand-font;
+  background: linear-gradient(120deg, #120, $brand-primary);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.navs{
+  @include bubble;
+  // background: #000;
+  display: inline-block;
+  a {
+    text-decoration: none;
+    @include txtPrime;
+  }
+}
+
+h2 {
+  font-size: 4em;
+  color: #fff;
+  text-align: center;
+  margin-bottom: $maring-std;
+}
+
+button {
+  @include bubble;
+  @include txtPrime;
+  background: $btn-primary;
+  transition: 500ms all;
+
+  &:hover {
+    background: $btn-hover;
+    color: $brand-primary;
+  }
+}
+
+input {
+  @include bubble;
+  @include txtPrime;
+  color: $brand-primary;
+}
+
+select {
+  @include bubble;
+  @include txtPrime;
+  background: $btn-primary;
+  transition: 500ms all;
+
+}
+
+.cowsay-img {
+  color: #fff;
+  margin: 10%;
+  font-weight: bold;
+  // font-family: $brand-font;
+
+}
