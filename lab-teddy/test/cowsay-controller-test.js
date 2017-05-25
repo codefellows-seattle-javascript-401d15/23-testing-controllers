@@ -1,7 +1,7 @@
 'use strict';
 
 const angular = require('angular');
-const expect = require('mocha').expect;
+const expect = require('chai').expect;
 require('angular-mocks');
 
 describe('testing CowsayController', function(){
@@ -17,6 +17,11 @@ describe('testing CowsayController', function(){
   afterEach(() => this.$rootScope.$apply());
 
   it('should be current', () => {
-    expect(this.current).toEqual(this.cowfiles[0]);
+    expect(this.cowsayCtrl.current).to.equal(this.cowsayCtrl.cowfiles[0]);
+    expect(this.cowsayCtrl.cowfiles[0]).to.equal('beavis.zen');
   });
+  it('should return true', () => {
+    expect(true).to.equal(true);
+  });
+  it('should')
 });
