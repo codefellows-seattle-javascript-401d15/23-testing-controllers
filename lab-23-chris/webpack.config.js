@@ -12,7 +12,7 @@ module.exports = {
   },
   plugins: [
     new HTMLPlugin({
-      template: `${__dirname}/app/index.html`
+      template: `${__dirname}/app/index.html`,
     }),
     new ExtractPlugin('bundle-[hash].css'),
   ],
