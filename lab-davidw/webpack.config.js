@@ -4,27 +4,28 @@ const HTMLPlugin = require('html-webpack-plugin');
 const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: `${__dirname}/app/entry/entry.js`,
+  devtool: 'eval',
+  entry: `${__dirname}/app/entry.js`,
   output: {
     filename: 'bundle.js',
-    path: `${__dirname}/app/index.js`,
+    path: `${__dirname}/app/index.html`,
   },
   plugins: [
     new HTMLPlugin({
-      template: `{__dirname}/app/index.html`,
+      template: `${__dirname}/app/index.html`,
     }),
     new ExtractPlugin('bundle-[hash].css'),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.js$/,
-        exclude: /node-modules/,
-        loader: ['babel-loader'],
+        exclude: /node_modules/,
+        loader: 'babel-loader',
       },
       {
         test: /\.(eot|woff|ttf|svg).*/,
