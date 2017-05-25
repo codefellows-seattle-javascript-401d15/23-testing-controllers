@@ -14,9 +14,9 @@
     "url": "git+https://github.com/DavidGWheeler/23-testing-controllers.git"
   },
   "keywords": [
-    "Angular"
+    "Angular, Karma, webpack, Cowsay"
   ],
-  "author": "",
+  "author": "DavidGWheeler",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DavidGWheeler/23-testing-controllers/issues"
