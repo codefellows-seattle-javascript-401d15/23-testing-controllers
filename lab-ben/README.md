@@ -1,8 +1,9 @@
-# Sassy-Cowsay-Browser-App
+# Sassy-Cowsay-Browser-App-and-Tests
 
 ## Goal
 
 To make a Cowsay, single page web browser application using Angular and styled with scss.
+To Test the features using Karma and Jasmine
 
 ## Features
 
@@ -17,3 +18,5 @@ To make a Cowsay, single page web browser application using Angular and styled w
 * Cowsay-Browser
 * Webpack
 * Babel
+* Karma
+* Jasmine

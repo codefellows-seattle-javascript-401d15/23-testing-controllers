@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Thu May 25 2017 09:40:19 GMT-0700 (Pacific Daylight Time)
 
-const webpack = require('webpack.config.js');
+const webpack = require('./webpack.config.js');
 delete webpack.entry;
 
 module.exports = function(config) {

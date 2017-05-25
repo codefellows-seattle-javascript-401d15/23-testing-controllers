@@ -4,7 +4,7 @@ const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: `${__dirname}/app/entry.js`,
   output: {
     filename: 'bundle-[hash].js',
@@ -23,8 +23,20 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
+        use: ExtractTextPlugin.extract({
+          use: [
+            { loader: 'css-loader',  options: { sourceMap: true } },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+                includePaths: [`${__dirname}/app/scss/`],
+              },
+            },
+          ],
+        }),
       },
+
     ],
   },
 };
