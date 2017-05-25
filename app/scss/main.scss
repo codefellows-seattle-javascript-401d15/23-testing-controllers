@@ -1,0 +1,19 @@
+
+@mixin boldtext{
+  font-weight: bold;
+  font-family: fantasy;
+}
+
+html{
+  text-align: center;
+  background-color: grey;
+}
+
+title{
+  font-family: impact;
+  font-size: 90px;
+}
+
+button {
+  @include boldtext;
+}
