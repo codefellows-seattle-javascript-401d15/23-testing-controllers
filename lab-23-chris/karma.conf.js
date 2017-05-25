@@ -14,14 +14,14 @@ module.exports = function(config) {
     ],
     exclude: [
     ],
-    browserConsoleLogOptions: {
-      level: 'log',
-    },
     preprocessors: {
       'app/entry.js': ['webpack'],
       'test/**/*-test.js': ['webpack'],
     },
     reporters: ['progress'],
+    browserConsoleLogOptions: {
+      level: 'log',
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
