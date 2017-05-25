@@ -7,7 +7,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "karma start"
+    "test": "karma start",
+    "watch": "webpack-dev-server --inline --hot",
+    "build": "webpack",
+    "lint": "eslint",
   },
   "author": "Allie Grampa",
   "license": "MIT",
