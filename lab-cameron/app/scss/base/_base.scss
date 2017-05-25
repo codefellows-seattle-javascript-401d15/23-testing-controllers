@@ -1,0 +1,16 @@
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $color-primary;
+}
+
+input {
+  @include bubble;
+  width: 50%;
+  margin: 0;
+  padding: $padding;
+  &:hover {
+    color: $color-secondary;
+  }
+}
