@@ -5,7 +5,7 @@ Lab 23 - Testing Angular Controllers With Karma
 
 #### My git hub repo:
    - you can clone or fork from here
-   - https://github.com/ChristopherSClosser/21-angular-webpack/tree/master/lab-21-chris
+   - https://github.com/ChristopherSClosser/23-testing-controllers
 
 #### Get started
   - Clone or download
