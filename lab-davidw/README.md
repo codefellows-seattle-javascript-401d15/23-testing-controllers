@@ -1,6 +1,6 @@
-# lab-22 Angular Controllers and scss
+# lab-23 Angular Controller Testing
 
-## A demo app illustrating the use of "Controller As" to control scope
+## A demo app illustrating the use of karma to test Angular controllers
 
 ### Setup:
 Install the app:
@@ -9,10 +9,16 @@ Install the app:
 Start the server:
 `$ npm run build`
 
+### Usage:
+
 If you want to see debug output you can use this command to start the server:
 `$ npm run watch`
 
-You can also lint the files:
+### TEST!
+Run the tests:
+`$ npm run test`
+
+Or just lint the files:
 `$ npm run lint`
 
 *Note:*
@@ -21,8 +27,6 @@ these files will be ignored:
       **/vendor/*
       **/*.min.js
 `
-### Usage:
-
 ###### Basic example:
 
 Simply enter some text and watch it change the default text of 'rawr' to your custom message.
