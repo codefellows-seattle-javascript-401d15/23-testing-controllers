@@ -1,0 +1,59 @@
+// *** VARS *** //
+
+$cow-size: 2em;
+$form-size: .6em;
+
+$border-standard: black solid 2px;
+
+
+// *** MIXINS *** //
+
+@mixin soften{
+  border-radius: .15em;
+  border: black solid .5px;
+}
+
+// *** BASE STYLES *** //
+body {
+  margin: 5%;
+  background-color: #5e5f73;
+}
+
+main {
+  background-color: lightgray;
+  border: $border-standard;
+}
+
+.container {
+  font-size: $cow-size;
+  padding: 1em;
+}
+
+
+.cow-form {
+  font-size: $form-size;
+  @include soften;
+}
+
+// Navbar only settings
+nav {
+  font-size: 1.5em;
+  ul {
+    width: 60%;
+    li {
+      width: 32%;
+      background-color: white;
+      border: $border-standard;
+      border-bottom: none;
+      text-align: center;
+      display: inline-block;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+      a:hover {
+        background-color: lightblue;
+      }
+    }
+  }
+}
