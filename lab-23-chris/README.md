@@ -1,9 +1,9 @@
 Lab 23 - Testing Angular Controllers With Karma
 ======
 
-### Cowsay Interactive
+## Cowsay Interactive
 
-  - ##### My git hub repo:
+#### My git hub repo:
    - you can clone or fork from here
    - https://github.com/ChristopherSClosser/21-angular-webpack/tree/master/lab-21-chris
 
