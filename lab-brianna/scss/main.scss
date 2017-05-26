@@ -1,0 +1,155 @@
+// :::: $vars ::::
+@import url('https://fonts.googleapis.com/css?family=Metamorphous');
+
+$brand-primary: #f6ee5b;
+$btn-primary: #1da1f3;
+$btn-hover: #ff5252;
+$black: #000;
+$white: #f5f8fa;
+$box-std: 20%;
+$gutter-std: 5%;
+$gutter-sm: $gutter-std / 2;
+$font-family: 'Metamorphous', cursive;
+
+@mixin primary-background {
+  background-color: $brand-primary;
+  border: 1px solid black;
+}
+
+
+// :::: global styles ::::
+
+
+body {
+  @include primary-background;
+  font-size: 2vw;
+}
+
+h2 {
+  font-family: $font-family;
+  font-size: 5vw;
+  text-align: center;
+  margin-bottom: $gutter-std;
+}
+
+button {
+  // float: right;
+  width: $box-std;
+  padding: 2% 0;
+  background: $btn-primary / 3;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 350ms all;
+
+  &:hover {
+    background: $btn-hover;
+    box-shadow: 0 4px #ab3c3c;
+    top: 2px;
+  }
+}
+
+input[type="text"] {
+  float: left;
+  width: $box-std + 10%;
+  margin-right: $gutter-std / 2;
+  padding: 2%;
+  border: none;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: $font-family;
+  margin: $gutter-std;
+}
+
+nav li {
+  display: inline;
+}
+
+a {
+  color: $black;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+
+// :::: app styles ::::
+
+.container {
+  float: left;
+  width: $box-std;
+  margin: 5%;
+}
+
+.text-binder {
+  height: 15vw;
+  font-size: 3vw;
+  margin: $gutter-std;
+  padding: 1vw;
+  color: $white;
+  background: $brand-primary / 3;
+  border: dotted .25vw $brand-primary;
+
+  + input {
+    width: 100%;
+  }
+}
+
+// // **** VARS **** //
+//
+// $brand-primary: #BADDAD;
+// $brand-secondary: #AFAFAF;
+// $padding: .5em;
+//
+// $font-size-primary: 1em;
+//
+//
+// // **** MIXINS **** //
+//
+// @mixin bubble{
+//   border-radius: .23em;
+//   font-family: sans-serif;
+// }
+//
+// @mixin drop{
+//   @include bubble;
+//   font-size:
+// }
+//
+//
+// //****BASE STYLES ****//
+//
+// html, body {
+// position: relative;
+//
+// }
+//
+// input {
+//   @include bubble;
+//   width: 50%;
+//   margin: 0;
+//   padding $padding;
+//   &:hover: {
+//   color: $brand-secondary;
+//   }
+// }
+//
+// // Avoid deep nested styling
+//
+// main {
+//   background-color: $brand-secondary;
+//   p {
+//
+//   }
+// }
+//
+// @for $i from 6 through 1 {
+//   h#{$i} { //similar to template literals in JS
+//     color: $brand-primary;
+//     margin-bottom: $i/10 * 1em;
+//   }
+// }

@@ -1,32 +1,33 @@
 'use strict';
 
-const HTMLPlugin = require('html-webpack-plugin');
-const ExtractPlugin = require('extract-text-webpack-plugin');
+const HTMLPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  devtool: 'source-map',
   entry: `${__dirname}/app/entry.js`,
   output: {
-    filename: 'bundle-[hash].js',
-    path: `${__dirname}/build`,
+    filename: 'bundle.js',
+    path: `${__dirname}/build`
   },
   plugins: [
-    new HTMLPlugin({
-      template: `${__dirname}/app/index.html`
-    }),
-    new ExtractPlugin('bundle-[hash].css'),
+    new HTMLPlugin({template: `${__dirname}/app/index.html`}),
+    new ExtractTextPlugin('bundle.css')
   ],
   module: {
-    rules: [
+    loaders: [
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: ['babel-loader']
       },
       {
-        test: /\.scss$/,
-        loader: ExtractPlugin.extract(['css-loader', 'sass-loader']),
-      },
-    ],
-  },
-};
+        test: /\.(eot|woff|ttf|svg).*/,
+        loader: 'url?limit=10000&name=fonts/[hash].[ext]'
+      }
+    ]
+  }
+}

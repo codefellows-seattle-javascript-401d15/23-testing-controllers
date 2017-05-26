@@ -1,36 +1,62 @@
 'use strict';
 
-const angular = require('angular');
+require('./scss/reset.scss')
+require('./scss/main.scss')
 
-angular.module('ipsumApp', []);
+const angular = require('angular')
+const cowsay = require('cowsay-browser')
+const cowsayApp = angular.module('cowsayApp', [])
 
-angular.module('ipsumApp')
-.controller('IpsumController', ['$log', IpsumController])
-function IpsumController($log){
-  // $onInit is used to define state and methods
-  // before the template gets compiled (like handlebar.compile)
-  this.$onInit = () => {
-    this.dictionary = {
-      hacker: ['rm -rf', 'password is password', 'hack the mainfraim', 'im in the matrix', 'the password are plain text', 'access granted', 'segfault 11', 'no file found', 'system malfunction', 'leave no trace'],
+cowsayApp.controller('CowsayController', ['$log', CowsayController])
 
-      bob: ['what an interesting approach', 'why?', 'how delightful', 'its too ova done', 'happy little trees', 'your beautiful', 'happy little accident'],
+function CowsayController($log) {
+  $log.debug('#CowsayController')
 
-      simpsons: ['spider cow', 'doh', 'donuts', 'booyea']
+  $log.log('check this out', this)
+
+  this.title = 'Welcome to Cowville'
+  this.history = []
+
+  cowsay.list((err, cows) => {
+    this.cowfiles = cows
+    this.current = this.cowfiles[0]
+  })
+
+  this.update = function(input) {
+    $log.debug('#update')
+    return cowsay.say({text: input || 'moooo', f: this.current})
+  }
+
+  this.speak = function(input) {
+    $log.debug('#speak')
+    this.spoken = this.update(input)
+    this.history.push(this.spoken)
+  }
+
+  this.undo = function() {
+    $log.debug('#undo')
+    let temp = this.history.pop()
+    this.spoken = temp || ''
+  }
+}
+
+cowsayApp.controller('NavigationController', ['$log', NavigationController])
+
+function NavigationController($log) {
+  $log.debug('#NavigationController')
+
+  this.routes = [
+    {
+      name: 'home',
+      url: '/home'
+    },
+    {
+      name: 'about',
+      url: '/about'
+    },
+    {
+      name: 'contact',
+      url: '/contact-us'
     }
-    this.choices = Object.keys(this.dictionary);
-    this.selected = this.choices[0];
-    this.content = '';
-
-    this.getRandomItem = (list) => {
-      return list[Math.floor(Math.random() * list.length)];
-    };
-    this.handleSubmit = () => {
-      let result = [];
-      for (let i =0; i< 15; i++){
-        let choice = this.dictionary[this.selected];
-        result.push(this.getRandomItem(choice));
-      }
-      this.content = result.join('. ');
-    }
-  };
+  ]
 }
