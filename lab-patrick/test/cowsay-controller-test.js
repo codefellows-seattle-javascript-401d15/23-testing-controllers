@@ -26,7 +26,7 @@ describe('testing CowsayController', function(){
     console.log(this.cowsayCtrl.title);
     expect(this.cowsayCtrl.title).toEqual('Make things say stuff');
   });
-  // it('should have a correct number of cow options', ()=>{
-  //   expect()
-  // });
+  it('should have a correct number of cow options', ()=>{
+    expect(this.cowsayCtrl.cowfiles.length).toEqual(46);
+  });
 });
