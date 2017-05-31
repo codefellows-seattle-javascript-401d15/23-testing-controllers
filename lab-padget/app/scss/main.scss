@@ -1,0 +1,138 @@
+// :::: $vars ::::
+
+$brand-primary: #5FBF39;
+$btn-primary: #514848;
+$btn-hover: #161614;
+
+$black: #000;
+$white: #fff;
+$green: #5FBF39;
+$kiwi: #78F248;
+$quartz: #514848;
+$licorice: #161614;
+
+$btn-pad: 2%;
+$btn-mar: 2%;
+$bor-rad: 5px;
+$font-size: 3vw;
+$font-fam: serif;
+
+$box-std: 50%;
+$gutter-std: 5%;
+$gutter-sm: $gutter-std / 2;
+
+@mixin border{
+  border-color: black;
+  border-top: 10px;
+  border-top-style: solid;
+}
+
+@mixin nav-margin{
+  margin-top: 3%;
+  margin-left: 2%;
+  margin-bottom: 3%;
+}
+
+// :::: global styles ::::
+
+body {
+  font-family: serif;
+  font-size: 2vw;
+  width: auto;
+}
+
+main {
+  @include border;
+  padding: 2%;
+}
+
+nav {
+  text-align: center;
+  @include nav-margin;
+}
+
+nav li {
+  display: inline;
+  margin-right: $btn-mar;
+  font-size: $font-size;
+}
+
+nav a {
+  color: $white;
+  text-decoration: none;
+}
+
+h2 {
+  color: $black;
+  font-size: $font-size;
+  text-align: center;
+  margin-bottom: $gutter-std;
+  margin-top: 2%;
+}
+
+button {
+  float: left;
+  clear: left;
+  width: $box-std / 2;
+  padding: $btn-pad 0;
+  margin: $btn-mar;
+  border: none;
+  border-radius: $bor-rad;
+  background: $btn-primary;
+  font-family: $font-fam;
+  font-size: $font-size;
+  color: $white;
+  cursor: pointer;
+  transition: 350ms all;
+
+  &:hover {
+    background: $btn-hover;
+  }
+}
+
+input[type="text"] {
+  float: left;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: $box-std;
+  padding: 2%;
+  border: none;
+  border-radius: 5px;
+  font-family: serif;
+  font-size: $font-size;
+}
+
+pre {
+  font-family: monospace;
+  margin: $gutter-std;
+  margin-top: 5%;
+}
+
+.spoken {
+  font-family: monospace;
+  margin: $gutter-std;
+  margin-top: 20%;
+}
+
+// :::: app styles ::::
+
+.container {
+  float: left;
+  width: $box-std;
+  margin: 5%;
+}
+
+.text-binder {
+  height: 15vw;
+  font-size: $font-size;
+  margin: $gutter-std;
+  padding: 1vw;
+  color: $white;
+  background: $brand-primary / 3;
+  border: dotted .25vw $brand-primary;
+  border-top: 0;
+
+  + input {
+    width: 100%;
+  }
+}
