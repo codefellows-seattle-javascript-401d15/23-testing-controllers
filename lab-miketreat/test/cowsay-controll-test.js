@@ -19,8 +19,11 @@ describe('testing the CowsayController', function(){
   });
 
   it('Have the title equal to "THERE IS NO COW LEVEL MAAAN"', () => {
-    console.log(this);
-    console.log(this.title);
-    expect(this.title).toEqual('THERE IS NO COW LEVEL MAAAN');
+    expect(this.cowsayCtrl.title).toEqual('THERE IS NO COW LEVEL MAAAN');
+  });
+
+  it('To have cowsayCtrl.current to be beavis.zen', () =>{
+    console.log(this.cowsayCtrl);
+    expect(this.cowsayCtrl.current).toEqual('beavis.zen');
   });
 });
