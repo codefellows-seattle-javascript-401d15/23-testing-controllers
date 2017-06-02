@@ -1,0 +1,93 @@
+// **** VARS **** //
+$brand-primary: #BADDAD;
+$brand-secondary: #AFAFAF;
+
+$padding: 1em;
+
+// **** MIXINS **** //
+$mqIterations: 19;
+@mixin fontResize($iterations) {
+    $i: 1;
+    @while $i <= $iterations {
+        @media all and (min-width: 100px * $i) {
+          pre {
+            font-size:0.1em * $i;
+          }
+          h1, h2, h3, h4, h5, h6 {
+            font-size:0.2em * $i;
+          }
+        }
+        $i: $i + 1;
+    }
+}
+
+// got this from => https://stackoverflow.com/questions/13358181/resize-font-size-according-to-div-size
+// it doesn't solve the problem I was trying to find but I thought it was cool
+
+// **** BASE STYLES **** //
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $brand-primary;
+  text-align: center;
+  font-family: 'inconsolata';
+}
+
+header {
+  display: block;
+  text-align: center;
+  padding: 0.7em;
+
+}
+
+nav li {
+  padding: $padding;
+  display: inline;
+  list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li a {
+  &:hover {
+    color: $brand-secondary;
+  }
+}
+
+input {
+  width: 50%;
+  margin: 0;
+  padding: 0.5em;
+  &:hover {
+    color: $brand-secondary;
+  }
+}
+
+.cow {
+  margin: $padding;
+  overflow: hidden;
+  border: thin solid black;
+  border-radius: 0.3em;
+  @include fontResize($mqIterations);
+  text-align: center;
+  padding: $padding;
+}
+
+pre {
+  display: block;
+  max-width: 22em;
+  text-align: left;
+  padding: $padding;
+  margin-right: auto;
+  margin-left: 22em;
+}
+
+@for $i from 6 through 1 {
+  h#{$i} {
+    @include fontResize($mqIterations);
+  }
+}
