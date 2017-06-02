@@ -1,0 +1,40 @@
+// :::: VARS :::: //
+
+$brand-primary: #222;
+$brand-secondary: #AFAFAF;
+
+$padding: .5em;
+
+$font-size-primary: 1.025em;
+
+$cowtext-shadow:
+  -1px -1px 1px #fff,
+   0px -1px 1px #fff,
+   1px -1px 1px #fff,
+  -1px  0px 1px #fff,
+   1px  0px 1px #fff,
+  -1px  1px 1px #fff,
+   0px  1px 1px #fff,
+   1px  1px 1px #fff;
+
+$headertext-shadow:
+  -1px -1px 1px #000,
+   0px -1px 1px #000,
+   1px -1px 1px #000,
+  -1px  0px 1px #000,
+   1px  0px 1px #000,
+  -1px  1px 1px #000,
+   0px  1px 1px #000,
+   1px  1px 1px #000;
+
+// :::: MIXINS :::: //
+
+@mixin bubble{
+  border-radius: .25em;
+  font-family: sans-serif;
+}
+
+@mixin drop{
+  @include bubble;
+  font-size: $font-size-primary;
+}
