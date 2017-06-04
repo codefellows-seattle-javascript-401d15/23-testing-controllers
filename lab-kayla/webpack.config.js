@@ -1,48 +1,32 @@
-'use strict'
+'use strict';
 
-const HTMLPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HTMLPlugin = require('html-webpack-plugin');
+const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'source-map'
+  devtool: 'eval',
   entry: `${__dirname}/entry.js`,
   output: {
-    filename: 'bundle.js',
-    path: `${__dirname}/build`
+    filename: 'bundle-[hash].js',
+    path: `${__dirname}/build`,
   },
   plugins: [
-    new HTMLPlugin({template: `${__dirname}/index.html`}),
-    new ExtractTextPlugin({filename: 'bundle.css'})
+    new HTMLPlugin({
+      template: `${__dirname}/index.html`
+    }),
+    new ExtractPlugin('bundle-[hash].css'),
   ],
-  use: ExtractTextPlugin.extract(
-   {
-     use: [
-       { loader: 'css-loader',  options: { sourceMap: true } },
-       {
-         loader: 'sass-loader',
-         options: {
-           sourceMap: true,
-           includePaths: [`${__dirname}/app/scss/`]
-         }
-       },
-     ]
-   }
- )
   module: {
-    loaders: [
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: ['babel-loader']
+        loader: 'babel-loader',
       },
       {
-        test: /\.(eot|woff|ttf|svg).*/,
-        loader: 'url?llimit=10000&name=fonts/[hash].[ext]'
-      }
-    ]
-  }
-}
+        test: /\.scss$/,
+        loader: ExtractPlugin.extract(['css-loader', 'sass-loader']),
+      },
+    ],
+  },
+};
