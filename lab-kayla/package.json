@@ -4,8 +4,8 @@
   "description": "",
   "main": "entry.js",
   "scripts": {
-    "watch": "webpack-dev-server --inline --hot",
     "build": "webpack",
+    "build-watch": "webpack-dev-server --inline --hot",
     "test": "karma start"
   },
   "author": "",
@@ -32,6 +32,8 @@
     "karma-chrome-launcher": "^2.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-webpack": "^2.0.3",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.2.28",
     "webpack-dev-server": "^2.4.5"
   }
 }
