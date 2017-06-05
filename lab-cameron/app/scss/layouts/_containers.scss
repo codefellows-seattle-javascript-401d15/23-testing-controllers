@@ -1,0 +1,8 @@
+.cow {
+  @include clearFix;
+  width: 30%;
+  margin: 0 auto;
+  color: darken($color-secondary, 40%);
+  font-weight: bolder;
+  font-size: $font-size-primary;
+}
