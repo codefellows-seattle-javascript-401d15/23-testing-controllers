@@ -1,5 +1,4 @@
-// Karma configuration
-// Generated on Wed May 24 2017 16:10:36 GMT-0700 (PDT)
+'use strict';
 
 const webpack = require('./webpack.config.js');
 delete webpack.entry;
@@ -11,7 +10,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
     files: [
       'app/entry.js',
-      'test/*-test.js',
+      'test/**/*-test.js',
     ],
     exclude: [
     ],
