@@ -1,0 +1,30 @@
+// *** VARS *** //
+$color-primary: #FDF3E7;
+$color-secondary: #7E8F7C;
+$color-tertiary: #3B3738;
+
+$padding: .4em;
+$margin: .3em;
+
+$font-size-one: 1em;
+
+// *** MIX-INS *** //
+@mixin button-hover {
+  background-color: $color-tertiary;
+  font-size: .8em;
+  color: gray;
+}
+
+html, body {
+  background-color: $color-primary;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  width: 50%;
+  background-color: $color-secondary;
+  &:hover {
+    @include button-hover;
+  }
+}
