@@ -25,7 +25,7 @@ this.$onInit = () => {
 
   this.update = function(input) {
     $log.debug('#update')
-    return cowsay.say({text: input || 'Drink me mofo', f: this.current})
+    return cowsay.say({text: input || 'Drink me mofo', f: this.current, W:60})
   }
 
   this.speak = function(input) {
@@ -36,8 +36,8 @@ this.$onInit = () => {
 
   this.undo = function() {
     $log.debug('#undo')
-    let temp = this.history.pop()
-    this.spoken = temp || ''
+    this.history.pop()
+    this.spoken = this.history[this.history.length - 1] || '';
   }
 }
 }

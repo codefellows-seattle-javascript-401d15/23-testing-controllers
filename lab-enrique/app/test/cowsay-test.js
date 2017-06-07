@@ -1,9 +1,9 @@
 'use strict';
 
-require('angular');
+const angular = require('angular');
 require('angular-mocks');
 
-describe('testing CowsayController', function(){
+describe('testing CowsayController', function() {
   beforeEach(() => {
     angular.mock.module('cowsayApp');
     angular.mock.inject(($rootScope, $controller) => {
@@ -15,21 +15,26 @@ describe('testing CowsayController', function(){
 
   afterEach(() => this.$rootScope.$apply());
 
-  it('should pass', () => {
+  it('should pass', done => {
     expect(true).toEqual(true);
-  })
+    done();
+  });
 
-  it('inital state should be correct', () => {
-    expect(this.cowsayCtrl.selected).toEqual('hacker');
-    expect(this.cowsayCtrl.content).toEqual('');
-  })
+  it('should speak when given input', done => {
+    this.cowsayCtrl.speak('undefined');
 
-  it('handleSubmit should gen ipsum', () => {
-    expect(this.cowsayCtrl.say).toEqual('');
-    this.cowsayCtrl.handleSubmit();
-    expect(this.cowsayCtrl.content.length).toBeGreaterThan(0);
-  })
+    expect(this.cowsayCtrl.text).toEqual(undefined);
+    done();
+  });
 
+  it('should return an Object', done => {
+    expect(typeof(this.cowsayCtrl)).toEqual('object');
+    done();
+  });
 
+  it('should have initial state of beavis.zen', done => {
+    expect(this.cowsayCtrl.current).toEqual('beavis.zen');
+    done();
+  });
 
 });

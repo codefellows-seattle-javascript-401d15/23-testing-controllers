@@ -7,13 +7,13 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['jasmine'],
     files: [
-      'app/entry.js',
+      'entry.js',
       'test/**/*-test.js'
     ],
     exclude: [
     ],
     preprocessors: {
-      'app/entry.js': ['webpack'],
+      'entry.js': ['webpack'],
       'test/**/*-test.js': ['webpack'],
     },
     reporters: ['progress'],
