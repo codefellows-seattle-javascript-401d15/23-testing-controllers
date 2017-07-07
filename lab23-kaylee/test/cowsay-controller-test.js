@@ -20,20 +20,24 @@ describe('testing CowsayController', function() {
     expect(this.cowsayCtrl.history).toEqual([]);
     expect(this.cowsayCtrl.history.length).toEqual(0);
     expect(this.cowsayCtrl.current).toEqual('beavis.zen');
-  })
+  });
+
+  it('should have plenty of "cows" to choose from', () => {
+    expect(this.cowsayCtrl.cowfiles.length).toEqual(46);
+  });
 
   it('speak function', () => {
     this.cowsayCtrl.speak('I\'m not really a cow!');
     expect(this.cowsayCtrl.spoken).toContain('I\'m not really a cow!');
     expect(this.cowsayCtrl.history[0]).toContain('I\'m not really a cow!');
     expect(this.cowsayCtrl.history.length).toEqual(1);
-  })
+  });
 
   it('update function', () => {
     let updated = this.cowsayCtrl.update('Just kidding, I\'m actually a cow.');
     expect(updated).toContain('Just kidding, I\'m actually a cow.');
     // expect(this.cowsayCtrl.spoken).toEqual(updated);
-  })
+  });
 
   it('undo function', () => {
     this.cowsayCtrl.speak('hello');
