@@ -8,7 +8,6 @@ cowsayApp.controller('CowsayController', ['$log', CowsayController])
 
 function CowsayController($log) {
   $log.debug('#CowsayController');
-  $log.log('check this out ', this);
 
   this.$onInit = () => {
     this.title = 'Welcome to Cowville';
@@ -32,8 +31,11 @@ function CowsayController($log) {
 
     this.undo = function() {
       $log.debug('#undo');
-      let temp = this.history.pop();
-      this.spoken = temp || '';
+      // let temp = this.history.pop();
+      // this.spoken = temp || '';
+      // above results in "off by one" error
+      this.history.pop();
+      this.spoken = this.history[this.history.length - 1] || '';
     }
   }
 }
