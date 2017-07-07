@@ -8,7 +8,8 @@
   },
   "scripts": {
     "watch": "webpack-dev-server --inline --hot",
-    "test": "karma start"
+    "test": "karma start --auto-watch --single-run",
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "",
