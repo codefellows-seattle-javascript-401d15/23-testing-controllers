@@ -7,18 +7,21 @@
   </head>
   <body>
     <header>
-      <nav ng-controller="NavigationController as navCtrl">
+      <!-- <nav ng-controller="NavigationController as navCtrl">
       <ul>
         <li ng-repeat="route in navCtrl.routes">
            <a href="{{ route.url }}">{{ route.name }}</a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
     </header>
     <main>
+
+
       <section
         ng-controller="CowsayController as cowsayCtrl"
         ng-init="cowsayCtrl.current = 'elephant'">
+
         <div class="title">
           <h1>{{ cowsayCtrl.title }}</h1>
         </div>
@@ -31,6 +34,7 @@
           ng-submit="cowsayCtrl.speak(cowsayCtrl.text)"
           name="cowsayForm"
           novalidate="true">
+
           <select name="cowOptions" ng-model="cowsayCtrl.current">
             <option ng-repeat="cow in cowsayCtrl.cowfiles" value="{{ cow }}">{{ cow }}</option>
           </select>
