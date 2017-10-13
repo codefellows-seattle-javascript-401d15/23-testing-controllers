@@ -50,10 +50,10 @@ function NavigationController($log) {
   $log.debug()
 
   this.routes = [
-    {
-      name:'home',
-      url:'/home'
-    },
+    // {
+    //   name:'home',
+    //   url:'/home'
+    // },
     {
       name:'about',
       url:'/about'
