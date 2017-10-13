@@ -46,6 +46,7 @@ function CowsayController($log, $scope) {
 
 cowsayApp.controller('NavigationController', ['$log', NavigationController])
 
+<<<<<<< HEAD
 // function NavigationController($log) {
 //   $log.debug()
 //
@@ -64,3 +65,23 @@ cowsayApp.controller('NavigationController', ['$log', NavigationController])
 //     }
 //   ]
 // }
+=======
+function NavigationController($log) {
+  $log.debug()
+
+  this.routes = [
+    // {
+    //   name:'home',
+    //   url:'/home'
+    // },
+    {
+      name:'about',
+      url:'/about'
+    },
+    {
+      name:'contact',
+      url:'/contact'
+    }
+  ]
+}
+>>>>>>> 10f5382200566b35323920baffd7862498b861bc

@@ -8,6 +8,9 @@ $white: #fff;
 $box-std: 20%;
 $gutter-std: 5%;
 
+html {
+  width: 100%;
+}
 
 body {
   font-family: helvetica;
@@ -19,7 +22,6 @@ body {
 .title {
   background-color: $btn-hover;
   height: 5em;
-
 }
 
 h1 {
